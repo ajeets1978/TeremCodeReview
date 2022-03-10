@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "CodeChallenge",
+    "slug": "CodeChallenge",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
