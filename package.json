@@ -7,7 +7,8 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "test": "jest"
+    "test": "jest",
+    "server": "nodemon ./server/index.js"
   },
   "jest": {
     "preset": "jest-expo",
@@ -48,11 +49,17 @@
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
     "react-native-web": "0.17.1",
-    "waait": "^1.0.5"
+    "waait": "^1.0.5",
+    "graphql-playground-middleware-express": "^1.7.23"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "react-test-renderer": "17"
+    "react-test-renderer": "17",
+    "express": "^4.17.3",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.3.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
   },
   "private": true
 }

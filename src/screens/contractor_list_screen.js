@@ -27,7 +27,6 @@ const ContractorListScreen = ({navigation}) => {
     if (error) {
         return <Error error={error}/>
     }
-    console.log(data);
     
     return (
         <View style={{
