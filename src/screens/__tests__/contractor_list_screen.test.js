@@ -60,12 +60,12 @@ describe ('Contractor List', () => {
         const mockedData = {
             request: {
                 query: GQL_CONTRACTORS,
-                result: {
-                    data: {
-                        contractors: [
-                            {id: 1, name: "Ajeet Singh", email: "test@gmail.com", jobTitle: "Java Developer", image: "http://some.png"},
-                        ],
-                    },
+            },
+            result: {
+                data: {
+                    contractors: [
+                        {"id": 1, "name": "Ajeet Singh", "email": "test@gmail.com", "jobTitle": "Java Developer", "image": "http://some.png"},
+                    ],
                 },
             },
         }; // Mocked data
@@ -74,7 +74,26 @@ describe ('Contractor List', () => {
 
         await waitForPromise();
         const json = tree.toJSON();
-        expect(tree.children).toContain('Ajeet Singh');
+        expect(() => {
+            tree.root.findByProps({
+                children: 'Ajeet Singh',
+            })
+        }).not.toThrow();
+        expect(() => {
+            tree.root.findByProps({
+                children: 'test@gmail.com',
+            })
+        })
+        expect(() => {
+            tree.root.findByProps({
+                children: 'Java Developer',
+            })
+        })
+        expect(() => {
+            tree.root.findByProps({
+                children: 'http://some.png',
+            })
+        })
     });
     
 });

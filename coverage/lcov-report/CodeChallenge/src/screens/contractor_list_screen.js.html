@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.33% </span>
+                <span class="strong">91.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/12</span>
+                <span class='fraction'>11/12</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">75% </span>
-                <span class="quiet">Branches</span>
+                <span class="quiet">Functions</span>
                 <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">63.63% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -169,21 +169,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -247,12 +247,12 @@ const ContractorListScreen = ({navigation}) =&gt; {
         return &lt;Loading/&gt;
     }
 &nbsp;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (error) {
+    if (error) {
         return &lt;Error error={error}/&gt;
     }
-<span class="cstat-no" title="statement not covered" >    console.log(data);</span>
+    console.log(data);
     
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;View style={{
             flexDirection:'row', padding: CONSTANTS.SPACING, marginBottom: CONSTANTS.SPACING,
             borderRadius: 12, backgroundColor: 'rgba(255,255,255, 0.8)',
@@ -260,9 +260,9 @@ const ContractorListScreen = ({navigation}) =&gt; {
         }}&gt;
             &lt;FlatList
             data = {data.contractors}
-            keyExtractor={<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item.id.toString()}</span>
-            renderItem = {<span class="fstat-no" title="function not covered" >({</span>item}) =&gt; {
-<span class="cstat-no" title="statement not covered" >                return &lt;TouchableOpacity onPress={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigation.navigate('ContractorDetailScreen', {item})}</span>&gt;</span>
+            keyExtractor={item =&gt; item.id.toString()}
+            renderItem = {({item}) =&gt; {
+                return &lt;TouchableOpacity onPress={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigation.navigate('ContractorDetailScreen', {item})}</span>&gt;
                 &lt;View style={{flexDirection:'row'}}&gt;
                 &lt;Image style={styles.image} source={{uri: item.image}}/&gt;
                 &lt;View style={{marginLeft: CONSTANTS.SPACING}}&gt;
@@ -307,7 +307,7 @@ export default ContractorListScreen;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sat Mar 12 2022 13:44:33 GMT+1100 (Australian Eastern Daylight Time)
+                at Sat Mar 12 2022 15:05:47 GMT+1100 (Australian Eastern Daylight Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>
