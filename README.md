@@ -6,6 +6,7 @@ A React Native project with CRUD operation for Contractors, using GraphQL.
 
 - [Node](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/en/docs/install)
+- [Expo CLI](https://docs.expo.dev/)
 
 ## Installation
 
