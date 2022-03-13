@@ -1,25 +1,27 @@
 import { useQuery } from "@apollo/client";
 import { NavigationContainer } from "@react-navigation/native";
-import { gql } from "@apollo/client";
+import { gql, useSubscription } from "@apollo/client";
 import { 
     Text, 
     View, 
     FlatList, 
     TouchableOpacity, 
     Image, 
-    StyleSheet 
+    StyleSheet,
+    SafeAreaView
 } from "react-native"
 
-import { CONTRACTORS } from "../data/data";
 import { GQL_CONTRACTORS } from "../graphql/query";
 import { CONSTANTS } from "../utils/constants";
 import { Error } from "../components/error";
 import { Loading } from "../components/loading";
-
+import { FAB, Button } from "react-native-paper";
 
 const ContractorListScreen = ({navigation}) => {
 
-    const { loading, error, data } = useQuery(GQL_CONTRACTORS);
+    const {loading, error, data} = useQuery(GQL_CONTRACTORS);
+    
+
     if(loading) {
         return <Loading/>
     }
@@ -27,9 +29,9 @@ const ContractorListScreen = ({navigation}) => {
     if (error) {
         return <Error error={error}/>
     }
-    
+
     return (
-        <View style={{
+        <SafeAreaView style={{
             flexDirection:'row', padding: CONSTANTS.SPACING, marginBottom: CONSTANTS.SPACING,
             borderRadius: 12, backgroundColor: 'rgba(255,255,255, 0.8)',
             shadowColor: "#000"
@@ -38,21 +40,34 @@ const ContractorListScreen = ({navigation}) => {
             data = {data.contractors}
             keyExtractor={item => item.id.toString()}
             renderItem = {({item}) => {
-                return <TouchableOpacity onPress={() => navigation.navigate('ContractorDetailScreen', {item})}>
-                <View style={{flexDirection:'row'}}>
+                return  <TouchableOpacity onPress={() => navigation.navigate('ContractorDetailScreen', {item})}>
+                <View style={{flexDirection:'row', justifyContent: 'space-evenly'}}>
                 <Image style={styles.image} source={{uri: item.image}}/>
                 <View style={{marginLeft: CONSTANTS.SPACING}}>
                     <Text style={styles.name}>{item.name}</Text>
                     <Text style={styles.jobTitle}>{item.jobTitle}</Text>
                     <Text style={styles.email}>{item.email}</Text>
                 </View>
+                <Button icon="account-minus" onPress={() => console.log("Delete operation")}/>
                 </View>
                 </TouchableOpacity>
             }}
             ></FlatList>
-        </View>
+            <FAB 
+                style={styles.addButton} 
+                label="Add Contractor"
+                icon= "plus"
+                onPress={() => {navigation.navigate('AddContractorScreen')}}
+
+            />
+        </SafeAreaView>
     );
 
+};
+
+// TODO: Add contractor
+function addContractor () {
+    console.log('Add contractors');
 };
 
 const styles = StyleSheet.create({
@@ -73,6 +88,12 @@ const styles = StyleSheet.create({
         fontSize: 14,
         opacity: .8,
         color: '#0099cc'
+    },
+    addButton: {
+        position: 'absolute',
+        margin: 16,
+        right: 0,
+        bottom: 0,
     }
 })
 

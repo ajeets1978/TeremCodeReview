@@ -6,6 +6,7 @@ import {
     Image, 
     StyleSheet 
 } from "react-native"
+import { Button } from "react-native-paper";
 import { CONSTANTS } from "../utils/constants";
 
 
@@ -18,6 +19,7 @@ const ContractorDetailScreen = ({navigation, route}) => {
                     <Text style={styles.jobTitle}>{item.jobTitle}</Text>
                     <Text style={styles.email}>{item.email}</Text>
                 </View>
+                <Button icon="account-edit" onPress={() => navigation.navigate('EditContractorScreen')}/>                
     </View>
 }
 
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         opacity: .8,
         color: '#0099cc'
-    }
+    }    
 })
 
 export default ContractorDetailScreen;
