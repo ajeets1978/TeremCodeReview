@@ -20,6 +20,7 @@ const contractors = [
     {id: 7, name: 'Xsdsd Sdidi', jobTitle: 'Java Developer', email: 'testt@gmail.com', image: 'https://loremflickr.com/320/240' },
     {id: 8, name: 'Don is don', jobTitle: 'Java Developer', email: 'testt@gmail.com', image: 'https://loremflickr.com/320/240' },
     {id: 9, name: 'Another name', jobTitle: 'Java Developer', email: 'testt@gmail.com', image: 'https://loremflickr.com/320/240' },
+    {id: 10, name: 'Name 10', jobTitle: 'Java Developer', email: 'testt@gmail.com', image: 'https://loremflickr.com/320/240' },
 ]
 
 const ContractorType = new GraphQLObjectType({

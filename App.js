@@ -12,19 +12,7 @@ import {
 } from '@apollo/client';
 import { onError } from '@apollo/client/link/error'
 import ContractorDetailNavigation from './src/navigation/contractor_detail_navigation';
-
-const errorLink = onError(({ graphqlErrors, networkError }) => {
-  if(graphqlErrors) {
-    graphqlErrors.map(({message, location, path}) => {
-      alert(`Graphql error ${message}`);
-    });
-  }
-});
-
-const link = from ([
-  errorLink,
-  new HttpLink({uri: "http://localhost:5000/graphql"})
-]);
+import { Provider } from './src/context/contractor_context';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -36,7 +24,9 @@ export default function App() {
   return (
       <NavigationContainer>
       <ApolloProvider client={client}>
-      <ContractorDetailNavigation/>
+        <Provider>
+          <ContractorDetailNavigation/>
+        </Provider>
       </ApolloProvider>
       </NavigationContainer>
   );

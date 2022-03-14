@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import App from './App';
+import { Provider } from './src/context/contractor_context';
 
 const theme = {
     ...DefaultTheme,

@@ -4,7 +4,7 @@ import ContractorForm from "../components/contractor_form";
 const EditContractorScreen = ({ navigation }) => {
     return (
         <ContractorForm 
-            onSubmit={(name, jobTitle, email, image) => { console.log("Will implement add Contractor logic") }}
+            onSubmit={(name, jobTitle, email, image) => { alert ("TBD") }}
         />
     );
 }

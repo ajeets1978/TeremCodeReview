@@ -37,3 +37,7 @@ $ yarn install
 - Plan to connect graphql with MongoDB or PostgreSQL
 
 - Wish I have that plenty of time to do all this in this code challenge :)
+
+## Trade Off
+
+- Prefer TDD approach but compromised to reverse for the code challenge

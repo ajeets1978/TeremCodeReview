@@ -16,12 +16,28 @@ import { CONSTANTS } from "../utils/constants";
 import { Error } from "../components/error";
 import { Loading } from "../components/loading";
 import { FAB, Button } from "react-native-paper";
+import { useContext, useEffect } from "react";
+import { Context } from "../context/contractor_context";
+import { StatusBar } from "expo-status-bar";
 
 const ContractorListScreen = ({navigation}) => {
 
     const {loading, error, data} = useQuery(GQL_CONTRACTORS);
+    /*
+    const { state, loading, error, data, getContractors } = useContext(Context);
+    useEffect(() => {
+        getContractors();
     
-
+        const listener = navigation.addListener('didFocus', () => {
+            getContractors();
+        });
+    
+        return () => {
+          listener.remove();
+        };
+      }, []);
+      */
+    
     if(loading) {
         return <Loading/>
     }
@@ -30,18 +46,21 @@ const ContractorListScreen = ({navigation}) => {
         return <Error error={error}/>
     }
 
+
     return (
         <SafeAreaView style={{
             flexDirection:'row', padding: CONSTANTS.SPACING, marginBottom: CONSTANTS.SPACING,
-            borderRadius: 12, backgroundColor: 'rgba(255,255,255, 0.8)',
-            shadowColor: "#000"
         }}>
             <FlatList
-            data = {data.contractors}
-            keyExtractor={item => item.id.toString()}
+            data = {data.contractors}            
+            keyExtractor={(item) => item.id.toString()}
+            contentContainerStyle={{
+                padding: CONSTANTS.SPACING,
+                
+            }}
             renderItem = {({item}) => {
                 return  <TouchableOpacity onPress={() => navigation.navigate('ContractorDetailScreen', {item})}>
-                <View style={{flexDirection:'row', justifyContent: 'space-evenly'}}>
+                <View style={styles.itemView}>
                 <Image style={styles.image} source={{uri: item.image}}/>
                 <View style={{marginLeft: CONSTANTS.SPACING}}>
                     <Text style={styles.name}>{item.name}</Text>
@@ -71,6 +90,21 @@ function addContractor () {
 };
 
 const styles = StyleSheet.create({
+    itemView: {
+        flexDirection:'row', 
+        padding: CONSTANTS.SPACING, 
+        marginBottom: 
+        CONSTANTS.SPACING, 
+        backgroundColor: 'rgba(255,255,255, 0.8)',
+        borderRadius: 12,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 10,
+        },
+        shadowOpacity: .4,
+        shadowRadius: 20,
+        },
     name: {
         fontSize: 22,
         fontWeight: '700',
