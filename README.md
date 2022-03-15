@@ -33,7 +33,7 @@ $ yarn install
 
 ## Plans
 
-- Update the List contractor to use Subscription from Graphql to monitor changes and update the screen, instead of using tools like Redux
+- Update the List contractor to use Subscription from Graphql to monitor changes and update the screen, instead of using tools like Redux / state or context management.
 - Plan to connect graphql with MongoDB or PostgreSQL
 
 - Wish I have that plenty of time to do all this in this code challenge :)
